@@ -28,10 +28,14 @@ describe("APIS TEST SUITE", () => {
       const product = {
         title: "Orange",
       };
+
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFkZSIsImlhdCI6MTYzNTk1NjI1NiwiZXhwIjoxNjM1OTU5ODU2fQ.CQq_kHKe7Ij-Zu4o74qzIo8zuEdTkFl42WTYbA6-G3M";
       chai
         .request(server)
         .patch("/update-product")
         .send(product)
+        .set({ Authorization: `Bearer ${token}` })
         .end((err, response) => {
           response.should.have.status(200);
           response.body.should.be.a("object");
@@ -46,10 +50,14 @@ describe("APIS TEST SUITE", () => {
       const body = {
         src: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       };
+
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFkZSIsImlhdCI6MTYzNTk1NjI1NiwiZXhwIjoxNjM1OTU5ODU2fQ.CQq_kHKe7Ij-Zu4o74qzIo8zuEdTkFl42WTYbA6-G3M";
       chai
         .request(server)
         .post("/resize-image")
         .send(body)
+        .set({ Authorization: `Bearer ${token}` })
         .end((err, response) => {
           response.should.have.status(200);
           response.body.should.be.a("object");
