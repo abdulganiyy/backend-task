@@ -39,7 +39,7 @@ describe("APIS TEST SUITE", () => {
         .end((err, response) => {
           response.should.have.status(200);
           response.body.should.be.a("object");
-          //   response.body.should.have.property("product");
+          response.body.should.have.property("product");
           done();
         });
     });
