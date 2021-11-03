@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 
-//routes
+// routes
 app.post("/login", login);
 app.patch("/update-product", protect, patchProuctController);
 app.post("/resize-image", protect, resizeImageController);
